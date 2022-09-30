@@ -1,0 +1,395 @@
+/* Importerar fonts */
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic");
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic");
+
+/* Lägger till CSS Variabler som håller de olika färgerna jag använder */
+
+:root {
+  --var-text-primary: #000;
+  --var-text-secondary: #003566;
+  --var-text-white: #fff;
+  --var-background-primary: #fefae0;
+}
+
+/* Body Styling */
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--var-background-primary);
+  overflow-x: hidden;
+}
+
+/* Navigation */
+.navigation {
+  height: 100%;
+  width: 100%;
+}
+
+.logo {
+  width: 100%;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 2rem 20% 0 5%;
+}
+
+.nav-list-container {
+  width: 100%;
+  height: 100%;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style-type: none;
+  width: 100%;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: var(--var-text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  /* Kod till "underline" som glider in och ut på nav linkar */
+  background-image: linear-gradient(
+    var(--var-text-secondary),
+    var(--var-text-secondary)
+  );
+  background-size: 0% 0.1em;
+  background-position-y: 100%;
+  background-position-x: 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.2s ease-in-out;
+}
+
+.nav-item a:hover,
+a:focus,
+a:active {
+  color: var(--var-text-secondary);
+  background-size: 100% 0.1em;
+  background-position-x: 0%;
+}
+
+/* End of Navigation */
+
+/* Hero */
+
+.hero {
+  margin-top: 5rem;
+}
+
+.hero-container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.hero-left {
+  width: 100%;
+  text-align: left;
+}
+
+.title {
+  font-size: 2rem;
+  color: var(--var-text-primary);
+  font-weight: 600;
+}
+
+.paragraph {
+  font-size: 1.2rem;
+  color: var(--var-text-primary);
+  font-weight: 300;
+}
+
+.text-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+}
+
+/* Klassen BTN används för båda knapparna medans jag har en fill och en outline variant */
+
+.btn {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  font-weight: 300;
+  padding: 0.4rem 2rem;
+  outline: none;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.2s transform ease-in-out;
+}
+.fill-variant {
+  background-color: var(--var-text-secondary);
+  color: var(--var-text-white);
+}
+
+.fill-variant:hover,
+.outline-variant:hover {
+  transform: scale(1.2);
+}
+
+.outline-variant {
+  background-color: transparent;
+  border: 2px solid var(--var-text-secondary);
+  color: var(--var-text-primary);
+}
+
+.buttons-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.buttons-container > button:nth-child(2) {
+  margin: 2rem;
+}
+
+/* CSS till hero image */
+
+.hero-right {
+  width: 100%;
+}
+
+.hero-image-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.border {
+  height: 100%;
+  width: 45%;
+  border: 2px solid red;
+  z-index: -1;
+}
+
+/* End of Hero */
+/* Information */
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.information-title {
+  color: var(--var-text-primary);
+  font-weight: 700;
+  font-size: 2.5rem;
+  position: relative;
+}
+
+.information-title svg {
+  position: absolute;
+  left: 50%;
+  bottom: -100%;
+  transform: translate(-50%, -100%);
+}
+
+.information-subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--var-text-primary);
+  padding: 0 15%;
+}
+
+/* End of Information */
+
+/* Login Popup */
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+
+.login-card-container {
+  background-color: var(--var-background-primary);
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2% 5%;
+  z-index: 99 !important;
+  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.3);
+}
+
+.login-card {
+  text-align: center;
+}
+
+.login-title {
+  font-size: 3rem;
+  color: var(--var-text-primary);
+  font-weight: 700;
+}
+
+.login-exit {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  cursor: pointer;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.login-btn {
+  color: #fff;
+  background-color: #003566;
+  border-radius: 15px;
+  font-size: 1.8rem;
+  padding: 0.5rem 1.8rem;
+  outline: none;
+  border: none;
+  margin: 1.5rem auto;
+  cursor: pointer;
+}
+
+.incorrect-login {
+  color: #d24e4e;
+  display: none;
+}
+
+/* Input Box */
+
+.input-box {
+  font-size: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 0.6rem;
+  font-family: "Roboto", sans-serif;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.input-box::placeholder {
+  color: var(--var-text-primary);
+  font-weight: 400;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.required {
+  color: #d24e4e;
+}
+
+/* Alternative Logins */
+
+.breaker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+hr {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  height: 1px;
+}
+
+.breaker-text {
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0 0.8rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.login-alternatives {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.alternative-btn {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 1rem 0;
+  padding: 0.7rem 0.5rem;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: box-shadow 500ms ease-in-out;
+}
+
+.alternative-btn:hover {
+  box-shadow: -1px 1px 25px rgba(0, 0, 0, 0.5);
+}
+
+.apple {
+  background-color: #000;
+  color: #fff;
+}
+
+.google {
+  color: #757575;
+}
+
+.signup {
+  font-size: 1rem;
+  color: var(--var-text-primary);
+  font-weight: 500;
+}
+
+.signup a {
+  text-decoration: none;
+  color: var(--var-text-secondary);
+}
+
+/* End of Login Popup */
+
+/* Media Query */
+@media only screen and (max-width: 1000px) {
+  .hero-left {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

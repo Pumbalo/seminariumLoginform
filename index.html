@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Now</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- navigation innehåller logo och 3 länkar. Använder sedan dispaly flex för att göra den responsiv-->
+    <nav class="navigation">
+      <div class="nav-container">
+        <div class="nav-logo-container">
+          <img src="./logo.png" alt="logo" class="logo" />
+        </div>
+        <div class="nav-list-container">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="#">Home</a></li>
+            <li class="nav-item"><a href="#">Pricing</a></li>
+            <li class="nav-item"><a href="#">About Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Login Popup -->
+    <div id="loginPopup" class="login-wrapper">
+      <div class="login-card-container">
+        <svg
+          id="loginExit"
+          class="login-exit"
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2 2L20 20M2 20L20 2"
+            stroke="black"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <div class="login-card">
+          <h1 class="login-title">Login</h1>
+          <form
+            name="login"
+            onsubmit="loginEvent(); return false;"
+            class="form-container"
+          >
+            <label for="name"
+              ><svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.58333 9.33333H7V7H6.41667M7 4.66667H7.00583M12.25 7C12.25 7.68944 12.1142 8.37213 11.8504 9.00909C11.5865 9.64605 11.1998 10.2248 10.7123 10.7123C10.2248 11.1998 9.64605 11.5865 9.00909 11.8504C8.37213 12.1142 7.68944 12.25 7 12.25C6.31056 12.25 5.62787 12.1142 4.99091 11.8504C4.35395 11.5865 3.7752 11.1998 3.28769 10.7123C2.80018 10.2248 2.41347 9.64605 2.14963 9.00909C1.8858 8.37213 1.75 7.68944 1.75 7C1.75 5.60761 2.30312 4.27226 3.28769 3.28769C4.27226 2.30312 5.60761 1.75 7 1.75C8.39239 1.75 9.72774 2.30312 10.7123 3.28769C11.6969 4.27226 12.25 5.60761 12.25 7Z"
+                  stroke="black"
+                  stroke-width="1.33333"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+              >Name <span class="required">*</span></label
+            >
+            <input
+              placeholder="Name"
+              type="text"
+              name="name"
+              class="input-box"
+              id="nameInput"
+              required
+            />
+            <label for="password"
+              ><svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.58333 9.33333H7V7H6.41667M7 4.66667H7.00583M12.25 7C12.25 7.68944 12.1142 8.37213 11.8504 9.00909C11.5865 9.64605 11.1998 10.2248 10.7123 10.7123C10.2248 11.1998 9.64605 11.5865 9.00909 11.8504C8.37213 12.1142 7.68944 12.25 7 12.25C6.31056 12.25 5.62787 12.1142 4.99091 11.8504C4.35395 11.5865 3.7752 11.1998 3.28769 10.7123C2.80018 10.2248 2.41347 9.64605 2.14963 9.00909C1.8858 8.37213 1.75 7.68944 1.75 7C1.75 5.60761 2.30312 4.27226 3.28769 3.28769C4.27226 2.30312 5.60761 1.75 7 1.75C8.39239 1.75 9.72774 2.30312 10.7123 3.28769C11.6969 4.27226 12.25 5.60761 12.25 7Z"
+                  stroke="black"
+                  stroke-width="1.33333"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+              >Password <span class="required">*</span></label
+            >
+            <input
+              placeholder="Password"
+              type="password"
+              name="password"
+              class="input-box"
+              id="passwordInput"
+              required
+            />
+            <input
+              id="submitBtn"
+              type="submit"
+              value="Login"
+              class="login-btn"
+            />
+            <span id="errorLogin" class="incorrect-login"
+              >Incorrect Name and/or Password</span
+            >
+          </form>
+          <div class="breaker">
+            <hr />
+            <span class="breaker-text">OR</span>
+            <hr />
+          </div>
+          <div class="login-alternatives">
+            <div class="apple-container">
+              <button class="alternative-btn apple">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.2363 6.98601C13.016 6.98601 13.9932 6.45894 14.5752 5.75617C15.1023 5.11929 15.4866 4.22984 15.4866 3.3404C15.4866 3.21962 15.4756 3.09883 15.4537 3C14.5862 3.03294 13.543 3.58198 12.9171 4.31769C12.423 4.87771 11.9728 5.75617 11.9728 6.65659C11.9728 6.78836 11.9947 6.92013 12.0057 6.96405C12.0606 6.97503 12.1485 6.98601 12.2363 6.98601ZM9.49113 20.2727C10.5563 20.2727 11.0284 19.559 12.3571 19.559C13.7077 19.559 14.0042 20.2508 15.1901 20.2508C16.3541 20.2508 17.1337 19.1747 17.8694 18.1205C18.693 16.9126 19.0334 15.7267 19.0554 15.6718C18.9785 15.6498 16.7494 14.7384 16.7494 12.1799C16.7494 9.9618 18.5063 8.96255 18.6052 8.88568C17.4412 7.21661 15.6733 7.17269 15.1901 7.17269C13.8834 7.17269 12.8183 7.9633 12.1485 7.9633C11.4237 7.9633 10.4684 7.21661 9.3374 7.21661C7.18517 7.21661 5 8.99549 5 12.3556C5 14.4419 5.81258 16.6491 6.81182 18.0766C7.66832 19.2845 8.41502 20.2727 9.49113 20.2727Z"
+                    fill="white"
+                  />
+                </svg>
+
+                Sign in with Apple
+              </button>
+            </div>
+            <div class="google-container">
+              <button class="alternative-btn google">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M20.64 12.2046C20.64 11.5664 20.5827 10.9527 20.4764 10.3636H12V13.845H16.8436C16.635 14.97 16.0009 15.9232 15.0477 16.5614V18.8196H17.9564C19.6582 17.2527 20.64 14.9455 20.64 12.2046Z"
+                    fill="#4285F4"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12 21C14.43 21 16.4673 20.1941 17.9564 18.8195L15.0477 16.5614C14.2418 17.1014 13.2109 17.4204 12 17.4204C9.65591 17.4204 7.67182 15.8373 6.96409 13.71H3.95728V16.0418C5.43818 18.9832 8.48182 21 12 21Z"
+                    fill="#34A853"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6.96409 13.71C6.78409 13.17 6.68182 12.5932 6.68182 12C6.68182 11.4068 6.78409 10.83 6.96409 10.29V7.95819H3.95727C3.34773 9.17319 3 10.5477 3 12C3 13.4523 3.34773 14.8268 3.95727 16.0418L6.96409 13.71Z"
+                    fill="#FBBC05"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12 6.57955C13.3214 6.57955 14.5077 7.03364 15.4405 7.92546L18.0218 5.34409C16.4632 3.89182 14.4259 3 12 3C8.48182 3 5.43818 5.01682 3.95728 7.95818L6.96409 10.29C7.67182 8.16273 9.65591 6.57955 12 6.57955Z"
+                    fill="#EA4335"
+                  />
+                </svg>
+
+                Sign in with Google
+              </button>
+            </div>
+          </div>
+          <p class="signup">Not a member? <a href="#">Sign up here!</a></p>
+        </div>
+      </div>
+    </div>
+    <!-- Hero section innehåller bild samt text på vardann sida -->
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-left">
+          <div class="text-container">
+            <h1 class="title">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
+              egestas est lorem mollis.
+            </h1>
+            <p class="paragraph">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eros
+              molestie sem non sit at blandit. Nibh faucibus massa tincidunt
+              pellentesque sed leo felis. Faucibus sit neque dui egestas.
+              Pharetra.
+            </p>
+
+            <div class="buttons-container">
+              <button class="btn fill-variant" id="heroLoginBtn">login</button
+              ><button class="btn outline-variant" id="heroSecondBtn">
+                join now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="hero-image-container">
+            <img
+              class="hero-image"
+              src="./hero-image.png"
+              alt="Image on beach"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Information section innehåller regler & information om Travel Now's service -->
+    <section class="information">
+      <div class="wrapper">
+        <h1 class="information-title">
+          Information & Rules
+          <svg
+            width="400"
+            height="34"
+            viewBox="0 0 400 34"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              opacity="0.7"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M177.678 7.84159C120.291 13.3071 111.421 14.1759 102.547 15.0178C92.5262 15.9684 82.501 16.8846 2.5936 24.3474C1.30595 24.4677 0.150769 23.6512 0.0134202 22.5238C-0.123928 21.3964 0.808569 20.385 2.09621 20.2647C82.0007 12.8021 92.0242 11.8861 102.043 10.9356C111.086 10.0778 120.125 9.19186 180.53 3.43984C183.351 3.17122 187.484 2.72824 191.977 2.24662C196.544 1.75711 201.483 1.22767 205.796 0.800814C209.986 0.386069 213.604 0.0667087 215.492 0.0096182C215.946 -0.0041112 216.43 -0.00787189 216.825 0.0308659L216.837 0.0320266C216.966 0.0443711 217.446 0.0904577 217.918 0.319129C218.162 0.436843 218.862 0.823612 219.097 1.65842C219.352 2.56585 218.857 3.23725 218.614 3.49556C218.366 3.75958 218.098 3.91417 217.977 3.97995C217.83 4.06038 217.691 4.12043 217.585 4.1626C217.374 4.24705 217.145 4.31943 216.931 4.38131C216.494 4.50745 215.916 4.64709 215.21 4.80173C201.578 7.78565 187.611 10.2674 173.663 12.7458C167.327 13.8717 160.994 14.997 154.698 16.1683C135.882 19.6691 117.304 23.5963 99.5448 29.2192C99.935 29.1934 100.33 29.1654 100.732 29.137L100.781 29.1334C101.864 29.0567 102.996 28.9764 104.124 28.9347C126.39 28.1109 160.423 25.2176 180.86 23.4677C197.573 22.0367 214.461 20.1198 231.425 18.1944C260.316 14.9152 289.426 11.6111 318.259 10.6402C318.568 10.6298 318.81 10.6219 318.979 10.6177C319.061 10.6157 319.145 10.614 319.217 10.6138C319.24 10.6138 319.27 10.6138 319.305 10.6144C319.324 10.6147 319.345 10.6152 319.366 10.616C319.396 10.617 319.447 10.6191 319.509 10.6242L319.511 10.6244C319.55 10.6276 319.705 10.6403 319.893 10.6836C319.969 10.7009 320.23 10.7616 320.522 10.9175C320.719 11.0228 321.716 11.6012 321.643 12.7822C321.581 13.7738 320.779 14.2707 320.665 14.3415L320.659 14.3448C320.436 14.484 320.236 14.5555 320.168 14.5795C320.007 14.6356 319.873 14.6637 319.837 14.6713L319.836 14.6715C319.78 14.6833 319.733 14.6913 319.705 14.6959C319.609 14.7116 319.51 14.7229 319.459 14.7288C319.331 14.7432 319.146 14.7618 318.941 14.7825L318.93 14.7836C318.077 14.8695 316.491 15.0292 314.66 15.292C314.17 15.3623 313.668 15.4394 313.161 15.5235C322.571 15.6405 332.049 15.4984 341.478 15.3129C350.355 15.1382 359.228 14.0724 368.232 12.9909C368.607 12.9459 368.983 12.9008 369.359 12.8557C378.698 11.7355 388.178 10.6387 397.655 10.6387C398.95 10.6387 400 11.5578 400 12.6916C400 13.8254 398.95 14.7446 397.655 14.7446C388.543 14.7446 379.367 15.7995 369.995 16.9236C369.591 16.9721 369.187 17.0206 368.782 17.0693C359.849 18.1427 350.735 19.2377 341.584 19.4177C330.636 19.6331 319.538 19.7921 308.53 19.5511C308.437 19.5491 308.328 19.5472 308.205 19.5451C307.413 19.5313 306.074 19.508 304.992 19.3747C304.465 19.3097 303.529 19.1733 302.79 18.7528C302.381 18.5203 301.654 17.9799 301.519 17.0247C301.433 16.4114 301.632 15.9071 301.872 15.5397C278.722 16.9638 255.564 19.595 232.387 22.2285C215.375 24.1613 198.354 26.0954 181.317 27.5541C160.923 29.3003 126.746 32.2073 104.322 33.0369C103.285 33.0753 102.229 33.1501 101.116 33.229L101.11 33.2295C100.011 33.3074 98.8558 33.3892 97.6979 33.4311C95.3851 33.5147 92.9066 33.4475 90.453 32.8238C90.1165 32.7383 89.0628 32.4299 88.6105 31.416C88.1191 30.3148 88.7772 29.4367 89.0044 29.173C89.2902 28.8411 89.6373 28.5967 89.8755 28.4432C90.141 28.272 90.4294 28.1146 90.7047 27.9759C91.7765 27.4357 93.1788 26.9151 93.9323 26.6637C113.222 20.2296 133.446 15.9248 153.724 12.152C160.112 10.9635 166.495 9.82941 172.857 8.69907C174.465 8.41327 176.072 8.12772 177.678 7.84159ZM92.6068 31.7833C92.6069 31.783 92.6098 31.7807 92.616 31.7763C92.6099 31.7812 92.6066 31.7835 92.6068 31.7833Z"
+              fill="#003566"
+            />
+          </svg>
+        </h1>
+        <p class="information-subtitle">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed
+          aliquam nulla molestie dictum. Est duis elit mattis tellus tempus
+          ultricies. Ullamcorper lectus dignissim suspendisse egestas eu. Arcu
+          ultricies vitae at eget massa dui, sollicitudin eu. Nec senectus
+          luctus tincidunt nam malesuada lacus, aliquet. Lacus ac cum est nibh
+          magna ultrices sollicitudin vitae, placerat. Neque, donec nibh
+          dignissim nunc tortor eu nisl. Felis et id porttitor eget vitae platea
+          nibh. Et semper donec aenean condimentum sed blandit. Dictum enim
+          vestibulum morbi elit in purus amet pellentesque. Aliquam feugiat
+          habitant sollicitudin viverra ac. Quis mi et.
+        </p>
+      </div>
+    </section>
+    <!-- Importerar JavaScript -->
+    <script src="./script.js"></script>
+  </body>
+</html>
